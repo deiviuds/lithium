@@ -4,10 +4,25 @@
 # Applied after Helium's add-helium-versioning.patch.
 #
 # Changes:
-# - HELIUM_* -> LITHIUM_*
+# - HELIUM_* -> LITHIUM_* in VERSION file and all source files
 # - GetHeliumVersionNumber -> GetLithiumVersionNumber
 # - helium_version -> lithium_version
 # - kHeliumVersion -> kLithiumVersion
+
+--- a/chrome/VERSION
++++ b/chrome/VERSION
+@@ -2,7 +2,7 @@ MAJOR=144
+ MINOR=0
+ BUILD=7559
+ PATCH=96
+-HELIUM_MAJOR=0
+-HELIUM_MINOR=8
+-HELIUM_PATCH=3
+-HELIUM_PLATFORM=1
++LITHIUM_MAJOR=0
++LITHIUM_MINOR=1
++LITHIUM_PATCH=0
++LITHIUM_PLATFORM=1
 
 --- a/build/apple/tweak_info_plist.py
 +++ b/build/apple/tweak_info_plist.py
