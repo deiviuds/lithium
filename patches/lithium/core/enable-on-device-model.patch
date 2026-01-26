@@ -1,0 +1,23 @@
+# Lithium Browser: Enable on-device AI model service
+#
+# This patch re-enables the on-device model service that was disabled
+# by ungoogled-chromium's fix-building-with-prunned-binaries.patch.
+# Required for Gemini Nano and related AI features to function.
+#
+# The flag is set in flags.macos.gn as a build-time flag, but this
+# patch ensures it's properly integrated at the source level.
+
+--- a/components/optimization_guide/core/optimization_guide_features.cc
++++ b/components/optimization_guide/core/optimization_guide_features.cc
+@@ -100,6 +100,11 @@ bool IsOnDeviceExecutionEnabled() {
+   return false;
+ }
+ 
++// Lithium: Check if on-device model service should be enabled
++bool IsOnDeviceModelServiceEnabled() {
++  return true;  // Enabled for Lithium Browser
++}
++
+ bool ShouldOverrideOptimizationTargetDecisionForMetricsPurposes(
+     optimization_guide::proto::OptimizationTarget optimization_target) {
+ #if BUILDFLAG(IS_ANDROID)

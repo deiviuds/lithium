@@ -1,0 +1,27 @@
+# Lithium Browser: Update branding from Helium to Lithium
+#
+# This patch updates the product branding in BRANDING file.
+# Applied after Helium's change-chromium-branding.patch.
+
+--- a/chrome/app/theme/chromium/BRANDING
++++ b/chrome/app/theme/chromium/BRANDING
+@@ -1,10 +1,10 @@
+-COMPANY_FULLNAME=The Helium Authors
+-COMPANY_SHORTNAME=The Helium Authors
+-PRODUCT_FULLNAME=Helium
+-PRODUCT_SHORTNAME=Helium
+-PRODUCT_INSTALLER_FULLNAME=Helium Installer
+-PRODUCT_INSTALLER_SHORTNAME=Helium Installer
+-COPYRIGHT=Copyright @LASTCHANGE_YEAR@ The Helium Authors. All rights reserved.
+-MAC_BUNDLE_ID=net.imput.helium
++COMPANY_FULLNAME=Lithium Browser
++COMPANY_SHORTNAME=Lithium
++PRODUCT_FULLNAME=Lithium
++PRODUCT_SHORTNAME=Lithium
++PRODUCT_INSTALLER_FULLNAME=Lithium Installer
++PRODUCT_INSTALLER_SHORTNAME=Lithium Installer
++COPYRIGHT=Copyright @LASTCHANGE_YEAR@ Lithium Browser. All rights reserved.
++MAC_BUNDLE_ID=com.lithium.browser
+ MAC_CREATOR_CODE=Cr24
+-MAC_TEAM_ID=S4Q33XPHB4
++MAC_TEAM_ID=XXXXXXXXXX

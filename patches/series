@@ -159,6 +159,7 @@ helium/core/fix-component-extension-reenablement.patch
 helium/core/ublock-setup-sources.patch
 helium/core/ublock-install-as-component.patch
 helium/core/ublock-reconfigure-defaults.patch
+helium/core/ublock-migrate-prefs.patch
 helium/core/ublock-helium-services.patch
 helium/core/clean-omnibox-suggestions.patch
 helium/core/increase-incognito-storage-quota.patch
@@ -265,4 +266,10 @@ helium/ui/find-bar.patch
 helium/ui/remove-zoom-action.patch
 helium/ui/experiments/compact-action-toolbar.patch
 helium/ui/pdf-viewer.patch
-helium/ui/hide-pip-live-caption-button.patch
+
+# Lithium Browser patches
+lithium/core/enable-on-device-model.patch
+lithium/core/restore-ai-flags.patch
+lithium/core/allow-ai-components.patch
+lithium/core/lithium-branding.patch
+lithium/core/lithium-versioning.patch

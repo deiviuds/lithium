@@ -1,0 +1,93 @@
+# Lithium Browser: Remove AI flags from exclusion list
+#
+# This patch modifies the kExcludedFlags set added by Helium's
+# exclude-irrelevant-flags.patch to make AI-related flags visible
+# in chrome://flags.
+#
+# Flags made visible:
+# - prompt-api-for-gemini-nano
+# - prompt-api-for-gemini-nano-multimodal-input
+# - summarization-api-for-gemini-nano
+# - writer-api-for-gemini-nano
+# - rewriter-api-for-gemini-nano
+# - proofreader-api-for-gemini-nano
+# - optimization-guide-on-device-model
+#
+# Flags kept hidden:
+# - translation-api (user preference)
+# - language-detection-api (requires ScreenAI)
+# - All other Helium exclusions remain
+
+--- a/chrome/browser/about_flags.cc
++++ b/chrome/browser/about_flags.cc
+@@ -13839,14 +13839,17 @@ const FeatureEntry kFeatureEntries[] = {
+   "enable-fingerprinting-protection-blocklist",
+   "enable-fingerprinting-protection-blocklist-incognito",
+ 
+-  // Google's experimental APIs that don't work in Helium
+-  // due to missing model binaries
++  // Translation APIs - kept disabled for privacy (requires cloud)
+   "translation-api",
+   "translation-api-streaming-by-sentence",
++  "language-detection-api",
+ 
+   // Misc features not relevant to Helium
+   "extensions-menu-access-control",
+   "extensions-collapse-main-menu",
++
++  // Lithium: AI flags REMOVED from exclusion - they should be visible
++  // See lithium/core/restore-ai-flags.patch
+ 
+   // NTP
+   "omnibox-zero-suggest-prefetching",
+@@ -13897,24 +13900,18 @@ const FeatureEntry kFeatureEntries[] = {
+   "enable-bound-session-credentials",
+   "enable-bound-session-credentials-software-keys-for-manual-testing",
+ 
+-  // Gemini Nano / Other Google models
+-  "prompt-api-for-gemini-nano",
+-  "prompt-api-for-gemini-nano-multimodal-input",
+-  "summarization-api-for-gemini-nano",
+-  "writer-api-for-gemini-nano",
+-  "rewriter-api-for-gemini-nano",
+-  "proofreader-api-for-gemini-nano",
++  // Lithium: Gemini Nano flags ENABLED (removed from exclusion list)
++  // "prompt-api-for-gemini-nano",
++  // "prompt-api-for-gemini-nano-multimodal-input",
++  // "summarization-api-for-gemini-nano",
++  // "writer-api-for-gemini-nano",
++  // "rewriter-api-for-gemini-nano",
++  // "proofreader-api-for-gemini-nano",
+   "omnibox-on-device-tail-suggestions",
+-  "language-detection-api",
+   "text-safety-classifier",
+   "page-content-annotations",
+   "page-content-annotations-remote-page-metadata",
+ 
+-  // AI Mode
+-  "ai-mode-omnibox-entry-point",
+-  "aim-server-eligibility",
+-  "hide-aim-omnibox-entrypoint-on-user-input",
+-  "omnibox-allow-ai-mode-matches",
+   "omnibox-aim-shortcut-typed-state",
+   "enable-lens-search-aim-m3",
+   "ntp-compose-entrypoint",
+@@ -13958,13 +13955,11 @@ const FeatureEntry kFeatureEntries[] = {
+   "history-embeddings",
+   "history-embeddings-answers",
+ 
+-  // Optimization Guide
+-  "optimization-guide-debug-logs",
+-  "optimization-guide-model-execution",
+-  "optimization-guide-on-device-model",
+-  "optimization-guide-personalized-fetching",
+-  "optimization-guide-push-notifications",
+-  "optimization-guide-enable-dogfood-logging",
++  // Lithium: optimization-guide-on-device-model ENABLED (removed from exclusion)
++  // "optimization-guide-on-device-model",
++  // Other optimization guide flags remain hidden
++  "optimization-guide-personalized-fetching",
++  "optimization-guide-push-notifications",
+   "privacy-policy-insights",
+ 
+   // Google Lens

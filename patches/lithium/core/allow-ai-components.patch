@@ -1,0 +1,22 @@
+# Lithium Browser: Allow OptimizationGuidePredictionModels component
+#
+# This patch adds the AI model component to the allowlist so that
+# Gemini Nano models can be downloaded via the component updater.
+#
+# Component ID: lmelglejhemejginpboagddgdfbepgmp
+# Component Name: OptimizationGuidePredictionModels
+#
+# This is required for on-device AI features to function.
+
+--- a/components/component_updater/component_installer.cc
++++ b/components/component_updater/component_installer.cc
+@@ -145,6 +145,7 @@ void ComponentInstaller::Register(Compon
+   static constexpr auto kAllowedComponents =
+     base::MakeFixedFlatSet<std::string_view>(
+       base::sorted_unique,
+         {
+           "hfnkpimlhhgieaddgfemjhofmfblmnib", // CRLSet
++          "lmelglejhemejginpboagddgdfbepgmp", // OptimizationGuidePredictionModels (Lithium: Gemini Nano)
+         }
+     );
+ 
